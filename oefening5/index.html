@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="nl">
 
-<head>
-    <script src="js/script.js" defer></script>
-    <title>Oefening</title>
-    <link rel="icon" href="img/javascript.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/default.css">
-</head>
+    <head>
+        <script src="js/script.js" defer></script>
+        <title>Oefening</title>
+        <link rel="icon" href="img/javascript.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/default.css">
+    </head>
 
-<body>
-
-</body>
+    <body>
+        <label>Naam:
+            <span id="naamFout" hidden class="fout">Verplicht in te vullen.</span>
+            <input id="naam" autofocus required>
+        </label>
+        <label>Hoogte (in centimeters):
+            <span id="hoogteFout" hidden class="fout">Minstens nul.</span>
+            <input id="hoogte" required type="number" min="0"></label>
+        <button id="toevoegen">Toevoegen</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Hoogte</th>
+                    <th>Plaats</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </body>
 
 </html>
