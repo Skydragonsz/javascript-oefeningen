@@ -1,3 +1,7 @@
+"use strict";
+import Crust from "../module/crust.js";
+import Topping from "../module/topping.js";
+
 class Pizza{
     name;
     description;
@@ -9,14 +13,35 @@ class Pizza{
         this.name = name;
         this.description = description;
         this.categoryName = categoryName;
-        this.crustList.push(crusts);
-        this.toppings.push(this.#processToppings(description));
+
+        
+        this.crustList = this.#processCrusts(crusts);
+        this.toppings = (this.#processToppings(description));
     }
 
     #processToppings(description){
-        return description.split(/, | & /);
+        let tempList = [];
+        for(const topping of description.split(",")){
+            tempList.push(new Topping(topping));
+        }
+
+        const tempTopping = tempList[tempList.length - 1].name;
+        tempList.pop();
+        for(const item of tempTopping.split("&")){
+            tempList.push(new Topping(item));
+        }
+
+        return tempList;
     }
 
+
+    #processCrusts(crusts){
+        let tempList = [];
+        for(const crust of crusts){
+            tempList.push(new Crust(crust.name, crust.description));
+        }
+        return tempList;
+    }
 
 }
 

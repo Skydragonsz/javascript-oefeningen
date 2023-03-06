@@ -1,7 +1,5 @@
-
-
 class Utils{
-    static async getData(url, callback, failure = this.fail, options) {
+    static async getData(url, callback, failure = this.failure, options) {
         let response; 
     
         try{
@@ -18,22 +16,15 @@ class Utils{
                 failure(response);
             }
         }catch (error){
-            failure(error);
+            console.log(error);
         }    
     }
     
     
-    fail(data){
+    failure(data){
         console.error("Failed:",data);
     }
 }
 
 
-
-
 export default Utils;
-
-
-
-
-
