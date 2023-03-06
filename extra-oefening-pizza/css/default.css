@@ -1,105 +1,55 @@
-body {
-    font-family: Arial;
+.pizza > img {
+    /*
+    background-image: url("/img/pizza.jpg");
+    background-size: 100%;
+    background-position: center;
+    */
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+
+
+
 }
 
-label {
-    cursor: pointer;
-    display: block;
-}
-
-input, select {
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 1em;
-    margin-top: 0.2em;
-}
-
-input[type=checkbox], input[type=radio] {
-    display: inline;
-}
-
-fieldset {
-    margin-bottom: 1em;
-    width: 20em;
-}
-
-.uitleg {
-    font-size: 70%
-}
-
-.feedback, .fout {
-    color: white;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-}
-
-.feedback {
-    background-color: navy;
-}
-
-.fout {
-    background-color: red;
-    margin-top:0.5em;
-}
-
-.feedback:empty, .fout:empty {
-    display: none;
-}
-
-.zachteAchtergrond {
-    background-color: blanchedalmond;
-}
-
-.dunneKader {
-    border-color: brown;
+.pizza{
+    position: relative;
+    overflow: hidden;
+    border-color: red;
+    border-width: 1px;
     border-style: solid;
-    border-width: 0.02em;
-    padding: 0.2em;
+    padding: 0;
+    margin: 0;
+
+
 }
 
-.opvallend {
-    background-color: greenyellow;
+main > ul{
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+    width: 100%;    
 }
 
-table {
-    margin-top: 1em;
+ul,
+ol{
+    list-style: none;
 }
 
-.container {
-    margin-top: 1em;
+body{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-areas: "main cart";
 }
 
-.links, .midden, .rechts {
-    float: left;
+main{
+    grid-area: main;
 }
 
-.midden, .rechts {
-    margin-left: 1em;
-}
+cart{
+    grid-area: cart;
 
-.midden button {
-    display: block;
-    margin-bottom: 0.4em;
-}
-
-.burgerSelect {
-    width: 20em;
-}
-
-dd {
-    font-weight: bold;
-    margin-left: 0;
-    margin-bottom: 0.5em;
-}
-
-.onderGemiddelde {
-    color: red;
-}
-
-.gemiddelde {
-    color: green;
-}
-
-.vanafGemiddelde {
-    color: blue;
+    margin: 0;
+    padding: 0;
 }

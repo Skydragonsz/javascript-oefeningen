@@ -1,45 +1,24 @@
 "use strict";
-import Utils from "../module/utils.js";
-import Pizza from "../module/pizza.js";
+import getData from "../module/utils.js";
 
-
-Utils.getData("extra/pizzas.json",processData);
+getData("extra/pizzas.json",processData);
 
 
 function processData(data){
     console.log(data);
     showData(data);
-    test(data);
-}
-
-function test(data){
-    for(const item of data.data){
-        console.log(new Pizza(item.name,item.description, item.categoryName, item.crust));
-    }
 }
 
 function showData(data){
-    const main = document.querySelector("main");
+    const body = document.querySelector("body");
     const ul = document.createElement("ul");
 
-
-
-    
-
-    for(const item of data.data){      
+    for(const item of data.data){
+        console.log(item);
+        
         const li = document.createElement("li");
         const innerUl = document.createElement("ul");
         const p = document.createElement("p");
-
-
-        /*
-        const image = document.createElement("img");
-        image.src = "/img/pizza.jpg";
-        image.alt = "pizza";
-        li.appendChild(image);
-        */
-
-        li.classList.add("pizza");
 
         for(const topping of processToppings(item)){        
             const innerLi = document.createElement("li");
@@ -53,7 +32,7 @@ function showData(data){
         ul.appendChild(li);
     }
 
-    main.appendChild(ul);
+    body.appendChild(ul);
 
 
 }
