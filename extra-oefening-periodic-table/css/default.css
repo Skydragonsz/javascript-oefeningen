@@ -1,105 +1,97 @@
-body {
-    font-family: Arial;
+:root{
+    --pixel-size: calc(100vw / 18 - 15px);
 }
 
-label {
+
+.table{
+    display: grid;
+    margin: auto;
+    /*grid-auto-flow: dense;*/
+    width: calc(18*var(--pixel-size));
+    height: calc(10*var(--pixel-size));
+    padding: 10px;
+}
+
+.table > li{
+    width: var(--pixel-size);
+    height: var(--pixel-size);
+}
+
+
+ul, ol{
+    list-style: none;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gray;
+}
+
+.item{
+    position: absolute;
+    width: var(--pixel-size);
+    height: var(--pixel-size);
+    padding: 0;
     cursor: pointer;
-    display: block;
+    font-size: 1rem;
+    
 }
 
-input, select {
-    display: block;
-    font-size: 1.1em;
-    margin-bottom: 1em;
-    margin-top: 0.2em;
+.item:hover{
+    transform: scale(1.2);
+    z-index: 1;
+
 }
 
-input[type=checkbox], input[type=radio] {
-    display: inline;
+.item li{
+    position: absolute;
 }
 
-fieldset {
-    margin-bottom: 1em;
-    width: 20em;
+.item-number{
+    font-size: 0.8vw;
+    top: 2px;
+    left: 2px;
 }
 
-.uitleg {
-    font-size: 70%
+.item-mass{
+    font-size: 0.5vw;
+    top: 2px;
+    right: 2px;
 }
 
-.feedback, .fout {
-    color: white;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+.item-symbol{
+    font-size: 2.2vw;
+    top: 20%;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-overflow: ellipsis;
 }
 
-.feedback {
-    background-color: navy;
+.item-name{
+    font-size: .6vw;
+    bottom: 2px;
+    left: 2px;
+    text-overflow: ellipsis;
 }
 
-.fout {
-    background-color: red;
-    margin-top:0.5em;
+a{
+    text-decoration: none;
+    color: black;
 }
 
-.feedback:empty, .fout:empty {
-    display: none;
+article > img {
+    width: 250px;
 }
 
-.zachteAchtergrond {
-    background-color: blanchedalmond;
+article{
+    margin: auto;
+    width: 80%;
 }
 
-.dunneKader {
-    border-color: brown;
-    border-style: solid;
-    border-width: 0.02em;
-    padding: 0.2em;
-}
-
-.opvallend {
-    background-color: greenyellow;
-}
-
-table {
-    margin-top: 1em;
-}
-
-.container {
-    margin-top: 1em;
-}
-
-.links, .midden, .rechts {
-    float: left;
-}
-
-.midden, .rechts {
-    margin-left: 1em;
-}
-
-.midden button {
-    display: block;
-    margin-bottom: 0.4em;
-}
-
-.burgerSelect {
-    width: 20em;
-}
-
-dd {
-    font-weight: bold;
-    margin-left: 0;
-    margin-bottom: 0.5em;
-}
-
-.onderGemiddelde {
-    color: red;
-}
-
-.gemiddelde {
-    color: green;
-}
-
-.vanafGemiddelde {
-    color: blue;
+model-viewer{
+    float: right;
+    width: 60%;
+    height: 500px;
 }
