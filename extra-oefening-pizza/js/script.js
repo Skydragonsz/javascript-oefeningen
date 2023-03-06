@@ -1,34 +1,58 @@
 "use strict";
+import Utils from "../module/utils.js";
+import Pizza from "../module/pizza.js";
 
-getData("extra/verspringen.json",verwerkUitslagen,nietGevondenTonen, {mode: "no-cors"});
+let pizzas = [];
 
-async function getData(url, callback, failure, options) {
-    let response; 
 
-    try{
-        if(options != null){
-            response = await fetch(url, options);
-        }else{
-            response = await fetch(url);
-        }
+Utils.getData("extra/pizzas.json",processData);
 
-        if (response.ok) {
-            let data =  await response.json();
-            callback(data);
-        }else{
-            failure();
-        }
-    }catch (error){
-        failure();
-        console.error("Something broke:", error);
-    }    
+
+function processData(data){
+    showData(data);
 }
 
-function nietGevondenTonen(tonen = true){
-    if (tonen){
-        document.getElementById("nietGevonden").hidden = false;
-    }else{
-        document.getElementById("nietGevonden").hidden = true;
+
+
+function showData(data){
+    const main = document.querySelector("main");
+    const ul = document.createElement("ul");  
+
+    for(const item of data.data){     
+        const pizza = new Pizza(item.name,item.description, item.categoryName, item.crust); 
+        pizzas.push(pizza);
+
+        const li = document.createElement("li");
+        const innerUl = document.createElement("ul");
+        const p = document.createElement("p");
+
+
+        li.classList.add("pizza");
+
+        for(const topping of pizza.toppings){        
+            const innerLi = document.createElement("li");
+            innerLi.innerText = topping.name;
+            innerUl.appendChild(innerLi);
+        }
+
+        p.innerText = `${pizza.name} - (${pizza.categoryName})`;
+        li.appendChild(p);
+        li.appendChild(innerUl);
+        ul.appendChild(li);
+
+        console.log(pizza);
     }
+
+    main.appendChild(ul);
+
 }
+
+
+
+
+
+
+
+
+
 
